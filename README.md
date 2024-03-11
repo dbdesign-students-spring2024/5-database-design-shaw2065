@@ -65,7 +65,7 @@
 6. student courses
 
     | student_id  | course_id | section_id  |
-    | ------------- | ------------- | ------------- |
+    | ----------- | --------- | ----------- |
     | 1           | 1         | 1           |
     | 2           | 1         | 3           |
     | 2           | 2         | 1           |
@@ -122,4 +122,4 @@
 ## What changes have been made to make the data 4NF-compliant
 1. **In Compliance with with second and third normal form, ensure every non-key field is a fact about the entire primary key.** For instance, if `section_id` and `due_date` are included in the 7th table of assignments, the other non-key fields, namely `assignment_topic` and `relevant_reading`, will be partially dependent on the subset, `assignment_id`, of the composite primary key, which does not comply with second normal form. Meanwhile, if both `professor_name` and `professor_email` are included in the 3rd table of sections, it would violate third normal form, as they are fact about each other instead of the key field, `section_id`.
 
-2. **In Compliance with fourth normal form, keep the number of independent multi-valued facts about an entity under two.** While the 6th table of student courses may appear to violate fourth normal form, `course_id` and `section_id` are not independent of each other. Their interdependence allows them to be presented in a single record. The same applies to `section_id` and `due_date` in the 8th table of assignment due dates. Conversely, since one specific assignment can have different due dates even if given by the same professor, including both `due_date` and `professor` will result in having two independent multi-valued facts in the same record, as `due_date` and `professor` are not guranteed to be dependent on each other.
+2. **In Compliance with fourth normal form, keep the number of independent multi-valued facts about an entity under two.** While the 6th table of student courses may appear to violate fourth normal form, `course_id` and `section_id` are not independent of each other. Their interdependence allows them to be presented in a single record. The same applies to `section_id` and `due_date` in the 8th table of assignment due dates. Conversely, since one specific assignment can have different due dates even if given by the same professor, including both `due_date` and `professor` in the 7th table of assignments will result in having two independent multi-valued facts in the same record, as `due_date` and `professor` are not guranteed to be dependent on each other.
