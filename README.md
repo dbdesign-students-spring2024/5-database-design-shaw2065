@@ -58,6 +58,7 @@
 | ...         | ...               | ...                 |
 
 6. student courses
+
 | student_id  | course_id | section_id  |
 | ------------- | ------------- | ------------- |
 | 1           | 1         | 1           |
