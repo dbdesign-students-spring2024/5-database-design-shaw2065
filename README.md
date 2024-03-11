@@ -15,6 +15,11 @@
 - **The data set does not satisfy the requirements of third normal form.** There are non-key fields that are about another non-key field. For example, the non-key field, `professor_email`, is a fact about another non-key field, `professor`.
 
 ## 4NF-compliant version of the data set
+
+| Year  | Leading Cause | Sex  | Race Ethnicity | Deaths  | Death Rate | Age Adjusted Death Rate |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| 2011  | Nephritis, Nephrotic Syndrome and Nephrisis (N00-N07, N17-N19, N25-N27)  | F  | Black Non-Hispanic  | 83  | 7.9  | 6.9  |
+
 1. professors
 | professor_id  | professor_email  | professor_name |
 | :------------ | :--------------- | :------------- |
