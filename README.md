@@ -15,91 +15,86 @@
 - **The data set does not satisfy the requirements of third normal form.** There are non-key fields that are about another non-key field. For example, the non-key field, `professor_email`, is a fact about another non-key field, `professor`.
 
 ## 4NF-compliant version of the data set
-
-| Year  | Leading Cause | Sex  | Race Ethnicity | Deaths  | Death Rate | Age Adjusted Death Rate |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 2011  | Nephritis, Nephrotic Syndrome and Nephrisis (N00-N07, N17-N19, N25-N27)  | F  | Black Non-Hispanic  | 83  | 7.9  | 6.9  |
-
 1. professors
-| professor_id  | professor_email  | professor_name |
-| :------------ | :--------------- | :------------- |
-| 1  | l.melvin@foo.edu  | Melvin  |
-| 2  | e.logston@foo.edu  | Logston  |
-| 3  | i.nevarez@foo.edu  | Nevarez  |
-| ...  | ...  | ...  |
+| professor_id  | professor_email    | professor_name |
+| :------------ | :----------------- | :------------- |
+| 1             | l.melvin@foo.edu   | Melvin         |
+| 2             | e.logston@foo.edu  | Logston        |
+| 3             | i.nevarez@foo.edu  | Nevarez        |
+| ...           | ...                | ...            |
 
 2. courses
-| course_id  | course_name |
-| :--------- | :---------- |
-| 1  | Database Design & Implementation  |
-| 2  | Introduction to Databases  |
-| ...  | ...  |
+| course_id  | course_name                       |
+| :--------- | :-------------------------------- |
+| 1          | Database Design & Implementation  |
+| 2          | Introduction to Databases         |
+| ...        | ...                               |
 
 3. sections
 | course_id  | section_id | professor_id  | classroom_id  |
 | :--------- | :--------- | :------------ | :------------ |
-| 1  | 1  | 1  | 1  |
-| 1  | 2  | 1  | 1  |
-| 1  | 3  | 2  | 2  |
-| 2  | 1  | 3  | 3  |
-| ...  | ...  | ...  |
+| 1          | 1          | 1             | 1             |
+| 1          | 2          | 1             | 1             |
+| 1          | 3          | 2             | 2             |
+| 2          | 1          | 3             | 3             |
+| ...        | ...        | ...           | ...           |
 
 4. classrooms
 | classroom_id  | classroom |
 | :------------ | :-------- |
-| 1  | WWH 101  |
-| 2  | 60FA 314  |
-| 3  | WWH 201  |
-| ...  | ...  |
+| 1             | WWH 101   |
+| 2             | 60FA 314  |
+| 3             | WWH 201   |
+| ...           | ...       |
 
 
 5. students
 | student_id  | student_last_name | student_first_name  |
 | :---------- | :---------------- | :------------------ |
-| 1  | Adams  | Alex  |
-| 2  | Kim  | Charlie  |
-| 4  | Miller  | Max  |
-| 7  | Wright  | Riley  |
-| ...  | ...  | ...   |
+| 1           | Adams             | Alex                |
+| 2           | Kim               | Charlie             |
+| 4           | Miller            | Max                 |
+| 7           | Wright            | Riley               |
+| ...         | ...               | ...                 |
 
 6. student courses
 | student_id  | course_id | section_id  |
 | :---------- | :-------- | :---------- |
-| 1  | 1  | 1  |
-| 2  | 1  | 3  |
-| 2  | 2  | 1  |
-| 4  | 1  | 2  |
-| 7  | 1  | 3  |
-| ...  | ...  | ...   |
+| 1           | 1         | 1           |
+| 2           | 1         | 3           |
+| 2           | 2         | 1           |
+| 4           | 1         | 2           |
+| 7           | 1         | 3           |
+| ...         | ...       | ...         |
 
 7. assignments
-| assignment_id  | assignment_topic | relevant_reading  |
-| :------------- | :--------------- | :---------------- |
-| 1  | Data normalization  | Deumlich Chapter 3  |
-| 2  | Single table queries  | Dümmlers Chapter 11  |
-| 4  | Spreadsheet aggregate functions  | Zehnder Page 87  |
-| 5  | Python and pandas  | Dümmlers Chapter 14  |
-| ...  | ...  | ...  |
+| assignment_id  | assignment_topic                 | relevant_reading     |
+| :------------- | :------------------------------- | :------------------- |
+| 1              | Data normalization               | Deumlich Chapter 3   |
+| 2              | Single table queries             | Dümmlers Chapter 11  |
+| 4              | Spreadsheet aggregate functions  | Zehnder Page 87      |
+| 5              | Python and pandas                | Dümmlers Chapter 14  |
+| ...            | ...                              | ...                  |
 
 8. assignment due dates
 | assignment_id  | section_id | due_date  |
 | :------------- | :--------- | :-------- |
-| 1  | 1  | 23.02.21  |
-| 1  | 2  | 23.02.21  |
-| 2  | 3  | 18.11.21  |
-| 4  | 1  | 04.07.21  |
-| 5  | 3  | 05.05.21  |
-| ...  | ...  | ...   |
+| 1              | 1          | 23.02.21  |
+| 1              | 2          | 23.02.21  |
+| 2              | 3          | 18.11.21  |
+| 4              | 1          | 04.07.21  |
+| 5              | 3          | 05.05.21  |
+| ...            | ...        | ...       |
 
 9. grades
 | student_id  | assignment_id | grade  |
 | :---------- | :------------ | :----- |
-| 1  | 1  | 80  |
-| 2  | 4  | 65  |
-| 2  | 5  | 92  |
-| 4  | 1  | 75  |
-| 7  | 2  | 25  |
-| ...  | ...  | ...   |
+| 1           | 1             | 80     |
+| 2           | 4             | 65     |
+| 2           | 5             | 92     |
+| 4           | 1             | 75     |
+| 7           | 2             | 25     |
+| ...         | ...           | ...    |
 
 
 ## ER diagram(s)
