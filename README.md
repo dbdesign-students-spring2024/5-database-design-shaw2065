@@ -15,8 +15,9 @@
 - **The data set does not satisfy the requirements of third normal form.** There are non-key fields that are about another non-key field. For example, the non-key field, `professor_email`, is a fact about another non-key field, `professor`.
 
 ## 4NF-compliant version of the data set
-1. professors
 
+1. professors
+    **Primary Key:** `professor_id`
     | professor_id  | professor_email    | professor_name |
     | :------------ | :----------------- | :------------- |
     | 1             | l.melvin@foo.edu   | Melvin         |
@@ -75,24 +76,24 @@
 
 7. assignments
 
-    | assignment_id  | assignment_topic                 | relevant_reading     |
-    | :------------- | :------------------------------- | :------------------- |
-    | 1              | Data normalization               | Deumlich Chapter 3   |
-    | 2              | Single table queries             | Dümmlers Chapter 11  |
-    | 4              | Spreadsheet aggregate functions  | Zehnder Page 87      |
-    | 5              | Python and pandas                | Dümmlers Chapter 14  |
-    | ...            | ...                              | ...                  |
+    | assignment_id  | assignment_topic                 |
+    | :------------- | :------------------------------- |
+    | 1              | Data normalization               |
+    | 2              | Single table queries             |
+    | 4              | Spreadsheet aggregate functions  |
+    | 5              | Python and pandas                |
+    | ...            | ...                              |
 
 8. assignment due dates
 
-    | assignment_id  | section_id | due_date  |
-    | :------------- | :--------- | :-------- |
-    | 1              | 1          | 23.02.21  |
-    | 1              | 2          | 23.02.21  |
-    | 2              | 3          | 18.11.21  |
-    | 4              | 1          | 04.07.21  |
-    | 5              | 3          | 05.05.21  |
-    | ...            | ...        | ...       |
+    | assignment_id  | section_id | due_date  | relevant_reading     |
+    | :------------- | :--------- | :-------- | :------------------- |
+    | 1              | 1          | 23.02.21  | Deumlich Chapter 3   |
+    | 1              | 2          | 23.02.21  | Deumlich Chapter 3   |
+    | 2              | 3          | 18.11.21  | Dümmlers Chapter 11  |
+    | 4              | 1          | 04.07.21  | Zehnder Page 87      |
+    | 5              | 3          | 05.05.21  | Dümmlers Chapter 14  |
+    | ...            | ...        | ...       | ...                  |
 
 9. grades
 
@@ -107,7 +108,7 @@
 
 10. student grades
 
-    | grade_id  | grade |
+    | grade_id  | grade    |
     | :-------- | :------- |
     | 1         | 80       |
     | 2         | 65       |
