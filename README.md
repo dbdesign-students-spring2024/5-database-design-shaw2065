@@ -17,6 +17,7 @@
 ## 4NF-compliant version of the data set
 
 1. professors
+
     **Primary Key:** `professor_id`
     | professor_id  | professor_email    | professor_name |
     | :------------ | :----------------- | :------------- |
