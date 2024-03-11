@@ -18,13 +18,13 @@
 
 1. professors
 
-    **Primary Key:** `professor_id`
     | professor_id  | professor_email    | professor_name |
     | :------------ | :----------------- | :------------- |
     | 1             | l.melvin@foo.edu   | Melvin         |
     | 2             | e.logston@foo.edu  | Logston        |
     | 3             | i.nevarez@foo.edu  | Nevarez        |
     | ...           | ...                | ...            |
+    Primary Key: `professor_id`
 
 2. courses
 
