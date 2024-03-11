@@ -118,7 +118,7 @@
 
 
 ## ER diagram(s)
-![Entity-Relationship Diagram](https://github.com/dbdesign-students-spring2024/5-database-design-shaw2065/blob/main/images/ERDiagram.svg)
+![Entity-Relationship Diagram](images/ERDiagram.svg)
 
 ## What changes have been made to make the data 4NF-compliant
 1. **In Compliance with with second and third normal form, ensure every non-key field is a fact about the entire primary key.** For instance, if `section_id` and `due_date` are included in the 7th table of assignments, the other non-key fields, namely `assignment_topic` and `relevant_reading`, will be partially dependent on the subset, `assignment_id`, of the composite primary key, which does not comply with second normal form. Meanwhile, if both `professor_name` and `professor_email` are included in the 3rd table of sections, it would violate third normal form, as they are fact about each other instead of the key field, `section_id`.
