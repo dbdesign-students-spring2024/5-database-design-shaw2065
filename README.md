@@ -17,7 +17,7 @@
 ## 4NF-compliant version of the data set
 1. professors
 | professor_id  | professor_email  | professor_name |
-| ------------- | ------------- | ------------- |
+| :------------ | :--------------- | :------------- |
 | 1  | l.melvin@foo.edu  | Melvin  |
 | 2  | e.logston@foo.edu  | Logston  |
 | 3  | i.nevarez@foo.edu  | Nevarez  |
@@ -25,14 +25,14 @@
 
 2. courses
 | course_id  | course_name |
-| ------------- | ------------- |
+| :--------- | :---------- |
 | 1  | Database Design & Implementation  |
 | 2  | Introduction to Databases  |
 | ...  | ...  |
 
 3. sections
 | course_id  | section_id | professor_id  | classroom_id  |
-| ------------- | ------------- | ------------- |
+| :--------- | :--------- | :------------ | :------------ |
 | 1  | 1  | 1  | 1  |
 | 1  | 2  | 1  | 1  |
 | 1  | 3  | 2  | 2  |
@@ -41,7 +41,7 @@
 
 4. classrooms
 | classroom_id  | classroom |
-| ------------- | ------------- |
+| :------------ | :-------- |
 | 1  | WWH 101  |
 | 2  | 60FA 314  |
 | 3  | WWH 201  |
@@ -50,7 +50,7 @@
 
 5. students
 | student_id  | student_last_name | student_first_name  |
-| ------------- | ------------- | ------------- |
+| :---------- | :---------------- | :------------------ |
 | 1  | Adams  | Alex  |
 | 2  | Kim  | Charlie  |
 | 4  | Miller  | Max  |
@@ -59,7 +59,7 @@
 
 6. student courses
 | student_id  | course_id | section_id  |
-| ------------- | ------------- | ------------- |
+| :---------- | :-------- | :---------- |
 | 1  | 1  | 1  |
 | 2  | 1  | 3  |
 | 2  | 2  | 1  |
@@ -69,7 +69,7 @@
 
 7. assignments
 | assignment_id  | assignment_topic | relevant_reading  |
-| ------------- | ------------- | ------------- |
+| :------------- | :--------------- | :---------------- |
 | 1  | Data normalization  | Deumlich Chapter 3  |
 | 2  | Single table queries  | Dümmlers Chapter 11  |
 | 4  | Spreadsheet aggregate functions  | Zehnder Page 87  |
@@ -78,7 +78,7 @@
 
 8. assignment due dates
 | assignment_id  | section_id | due_date  |
-| ------------- | ------------- | ------------- |
+| :------------- | :--------- | :-------- |
 | 1  | 1  | 23.02.21  |
 | 1  | 2  | 23.02.21  |
 | 2  | 3  | 18.11.21  |
@@ -88,7 +88,7 @@
 
 9. grades
 | student_id  | assignment_id | grade  |
-| ------------- | ------------- | ------------- |
+| :---------- | :------------ | :----- |
 | 1  | 1  | 80  |
 | 2  | 4  | 65  |
 | 2  | 5  | 92  |
