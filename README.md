@@ -24,6 +24,7 @@
     | 2             | e.logston@foo.edu  | Logston        |
     | 3             | i.nevarez@foo.edu  | Nevarez        |
     | ...           | ...                | ...            |
+    
     Primary Key: `professor_id`
 
 2. courses
