@@ -16,7 +16,7 @@
 
 ## 4NF-compliant version of the data set
 
-1. professors
+1. professor
 
     | professor_id  | professor_email    | professor_name |
     | :------------ | :----------------- | :------------- |
@@ -24,10 +24,13 @@
     | 2             | e.logston@foo.edu  | Logston        |
     | 3             | i.nevarez@foo.edu  | Nevarez        |
     | ...           | ...                | ...            |
-    
-    Primary Key: `professor_id`
 
-2. courses
+    > [!NOTE]
+    > Primary key: `professor_id`
+    > All non-key fields are not facts about any other non-key field.
+    > `professor_email` and `professor_name` are single-valued facts about the primary key. Each professor id can only have one email address, and one name associated with.
+
+2. course
 
     | course_id  | course_name                       |
     | :--------- | :-------------------------------- |
@@ -35,27 +38,25 @@
     | 2          | Introduction to Databases         |
     | ...        | ...                               |
 
-3. sections
+    > [!NOTE]
+    > Primary key: `course_id`
+
+3. section
     
-    | course_id  | section_id | professor_id  | classroom_id  |
-    | :--------- | :--------- | :------------ | :------------ |
-    | 1          | 1          | 1             | 1             |
-    | 1          | 2          | 1             | 1             |
-    | 1          | 3          | 2             | 2             |
-    | 2          | 1          | 3             | 3             |
-    | ...        | ...        | ...           | ...           |
+    | section_id | course_id  | professor_id  | classroom  |
+    | :--------- | :--------- | :------------ | :--------- |
+    | 101        | 1          | 1             | WWH 101    |
+    | 102        | 1          | 1             | WWH 101    |
+    | 103        | 1          | 2             | 60FA 314   |
+    | 201        | 2          | 3             | WWH 201    |
+    | ...        | ...        | ...           | ...        |
 
-4. classrooms
+    > [!NOTE]
+    > Primary key: `section_id`
+    > All non-key fields are not facts about any other non-key field.
+    > `course_id`, `professor_id` and `classroom` are all single-valued facts about the primary key. Each section is of one course, and taught by one professor, and held in one classroom.
 
-    | classroom_id  | classroom |
-    | :------------ | :-------- |
-    | 1             | WWH 101   |
-    | 2             | 60FA 314  |
-    | 3             | WWH 201   |
-    | ...           | ...       |
-
-
-5. students
+4. student info
 
     | student_id  | student_last_name | student_first_name  |
     | :---------- | :---------------- | :------------------ |
@@ -65,18 +66,26 @@
     | 7           | Wright            | Riley               |
     | ...         | ...               | ...                 |
 
-6. student courses
+    > [!NOTE]
+    > Primary key: `student_id`
+    > All non-key fields are not facts about any other non-key field.
+    > `student_last_name` and `student_first_name` are all single-valued facts about the primary key. Each student id can only associate with one last name and one first name.
 
-    | student_id  | course_id | section_id  |
-    | :---------- | :-------- | :---------- |
-    | 1           | 1         | 1           |
-    | 2           | 1         | 3           |
-    | 2           | 2         | 1           |
-    | 4           | 1         | 2           |
-    | 7           | 1         | 3           |
-    | ...         | ...       | ...         |
+5. student section
 
-7. assignments
+    | student_id  | section_id |
+    | :---------- | :--------- |
+    | 1           | 101        |
+    | 2           | 103        |
+    | 2           | 201        |
+    | 4           | 102        |
+    | 7           | 103        |
+    | ...         | ...        |
+
+    > [!NOTE]
+    > Primary key: `student_id`
+
+6. assignment
 
     | assignment_id  | assignment_topic                 |
     | :------------- | :------------------------------- |
@@ -86,44 +95,43 @@
     | 5              | Python and pandas                |
     | ...            | ...                              |
 
-8. assignment due dates
+    > [!NOTE]
+    > Primary key: `assignment_id`
+
+7. assignment info
 
     | assignment_id  | section_id | due_date  | relevant_reading     |
     | :------------- | :--------- | :-------- | :------------------- |
-    | 1              | 1          | 23.02.21  | Deumlich Chapter 3   |
-    | 1              | 2          | 23.02.21  | Deumlich Chapter 3   |
-    | 2              | 3          | 18.11.21  | Dümmlers Chapter 11  |
-    | 4              | 1          | 04.07.21  | Zehnder Page 87      |
-    | 5              | 3          | 05.05.21  | Dümmlers Chapter 14  |
+    | 1              | 101        | 23.02.21  | Deumlich Chapter 3   |
+    | 1              | 102        | 23.02.21  | Deumlich Chapter 3   |
+    | 2              | 103        | 18.11.21  | Dümmlers Chapter 11  |
+    | 4              | 201        | 04.07.21  | Zehnder Page 87      |
+    | 5              | 103        | 05.05.21  | Dümmlers Chapter 14  |
     | ...            | ...        | ...       | ...                  |
 
-9. grades
+    > [!NOTE]
+    > Composite primary key: `assignment_id` and `section_id`
+    > All non-key fields are not facts about any other non-key field.
+    > `due_date` and `relevant_reading` are all single-valued facts about the primary key. Each assignment for the specific section will have only one due date and only one relevant reading.
 
-    | grade_id  | student_id | assignment_id |
-    | :-------- | :--------- | :------------ |
-    | 1         | 1          | 1             |
-    | 2         | 2          | 4             |
-    | 3         | 2          | 5             |
-    | 4         | 4          | 1             |
-    | 5         | 7          | 2             |
-    | ...       | ...        | ...           |
+8. grade
 
-10. student grades
+    | student_id | assignment_id | grade    |
+    | :--------- | :------------ | :------- |
+    | 1          | 1             | 80       |
+    | 2          | 4             | 65       |
+    | 2          | 5             | 92       |
+    | 4          | 1             | 75       |
+    | 7          | 2             | 25       |
+    | ...        | ...           | ...      |
 
-    | grade_id  | grade    |
-    | :-------- | :------- |
-    | 1         | 80       |
-    | 2         | 65       |
-    | 3         | 92       |
-    | 4         | 75       |
-    | 5         | 25       |
-    | ...       | ...      |
-
+    > [!NOTE]
+    > Composite rimary key: `student_id` and `assignment_id`
 
 ## ER diagram(s)
 ![Entity-Relationship Diagram](images/ERDiagram.svg)
 
 ## What changes have been made to make the data 4NF-compliant
-1. **In Compliance with with second and third normal form, ensure every non-key field is a fact about the entire primary key.** For instance, if `section_id` and `due_date` are included in the 7th table of assignments, the other non-key fields, namely `assignment_topic` and `relevant_reading`, will be partially dependent on the subset, `assignment_id`, of the composite primary key, which does not comply with second normal form. Meanwhile, if both `professor_name` and `professor_email` are included in the 3rd table of sections, it would violate third normal form, as they are fact about each other instead of the key field, `section_id`.
+1. **In Compliance with with second and third normal form, ensure every non-key field is a fact about the entire primary key.** For instance, if `assignment_topic` is included in the 7th table of assignment info, it will then be partially dependent on one subset of the composite primary key, `assignment_id`, which does not comply with second normal form. Meanwhile, if both `professor_name` and `professor_email` are included in the 3rd table of sections, it would violate third normal form, as they are facts about each other instead of the key field, `section_id`.
 
-2. **In Compliance with fourth normal form, keep the number of independent multi-valued facts about an entity under two.** While the 6th table of student courses may appear to violate fourth normal form, `course_id` and `section_id` are not independent of each other. Their interdependence allows them to be presented in a single record. The same applies to `section_id` and `due_date` in the 8th table of assignment due dates. Conversely, since one specific assignment can have different due dates even if given by the same professor, including both `due_date` and `professor` in the 7th table of assignments will result in having two independent multi-valued facts in the same record, as `due_date` and `professor` are not guranteed to be dependent on each other.
+2. **In Compliance with fourth normal form, keep the number of independent multi-valued facts about an entity under two.** If `section_id` is not part of the primary key in the 7th table of assignment info, then both `due_date` and `relevant_reading` become independent multi-valued facts that will violate the fourth normal form, as each assignment can have multiple due dates and relevant readings. This occurs specifically in two cases: 1) different sections with different due dates but the same relevant reading, 2) different sections with different relevant readings but with the same due date.
