@@ -104,6 +104,7 @@
     | ...            | ...        | ...       | ...                  |
 
     - Composite primary key: `assignment_id` and `section_id`
+    - All non-key fields are facts about the entire primary key.
     - All non-key fields are not facts about any other non-key field.
     - `due_date` and `relevant_reading` are single-valued facts about the primary key. In one specific section, each assignment has only one due date and only one relevant reading.
 
