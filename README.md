@@ -27,7 +27,7 @@
 
     - Primary key: `professor_id`
     - All non-key fields are not facts about any other non-key field.
-    - `professor_email` and `professor_name` are single-valued facts about the primary key. Each professor id can only have one email address, and one name associated with.
+    - `professor_email` and `professor_name` are single-valued facts about the primary key. Each professor id can only associate with one email address and one name.
 
 2. course
 
@@ -51,7 +51,7 @@
 
     - Primary key: `section_id`
     - All non-key fields are not facts about any other non-key field.
-    - `course_id`, `professor_id` and `classroom` are all single-valued facts about the primary key. Each section is of one course, and taught by one professor, and held in one classroom.
+    - `course_id`, `professor_id` and `classroom` are single-valued facts about the primary key. Each section belongs to only one course, and is taught by one professor, and held in one classroom.
 
 4. student info
 
@@ -65,7 +65,7 @@
 
     - Primary key: `student_id`
     - All non-key fields are not facts about any other non-key field.
-    - `student_last_name` and `student_first_name` are all single-valued facts about the primary key. Each student id can only associate with one last name and one first name.
+    - `student_last_name` and `student_first_name` are single-valued facts about the primary key. Each student id can only associate with one last name and one first name.
 
 5. student section
 
@@ -105,7 +105,7 @@
 
     - Composite primary key: `assignment_id` and `section_id`
     - All non-key fields are not facts about any other non-key field.
-    - `due_date` and `relevant_reading` are all single-valued facts about the primary key. Each assignment for the specific section will have only one due date and only one relevant reading.
+    - `due_date` and `relevant_reading` are single-valued facts about the primary key. In one specific section, each assignment has only one due date and only one relevant reading.
 
 8. grade
 
